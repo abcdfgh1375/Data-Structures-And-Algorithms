@@ -1,14 +1,13 @@
 package MultiplayerGameQueue;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+//
+//import java.util.ArrayList;
+//import java.util.Arrays;
 import java.util.InputMismatchException;
-import java.util.List;
+//import java.util.List;
 import java.util.Scanner;
 
 //class GameQueue//
 public class GameQueue extends Menu {
-    
     //execute code//
     @Override
     public void execute(int choice) {
@@ -34,12 +33,11 @@ public class GameQueue extends Menu {
     Node front, rear;
 
     //constructor of GameQueue class//
-    public GameQueue() {
-        super("Game Queue Management", Arrays.asList(new String[]{"Join queue", "Update queue", "Exit"}));
-        this.front = this.rear = null;
-    }
     
-        public int getChoice() {
+        public GameQueue() {
+    }
+
+    public int getChoice() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter selection: ");
         return Integer.parseInt(sc.nextLine());
@@ -116,22 +114,6 @@ public class GameQueue extends Menu {
 
 //abstract class Menu//
 abstract class Menu {
-
-    protected String title;
-    protected List<String> list = new ArrayList();
-
-    public Menu(String title, List<String> list) {
-        this.title = title;
-        this.list = list;
-    }
-
-    public void display() {
-        System.out.println(title);
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println((i + 1) + ". " + list.get(i));
-        }
-    }
-
     public int getChoice() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter selection: ");
@@ -139,15 +121,6 @@ abstract class Menu {
     }
 
     public abstract void execute(int choice);
-
-    public void run() {
-        int choice;
-        do {
-            display();
-            choice = getChoice();
-            execute(choice);
-        } while (choice < list.size());
-    }
 }
 
 //class Node//
@@ -228,4 +201,5 @@ class Player {
         }
     }
 }
+
 

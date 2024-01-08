@@ -8,6 +8,6 @@ public class Main {
             System.out.println("1. Join queue\n2. Update queue\n3. Exit");
             choice = gameQueue.getChoice();
             gameQueue.execute(choice);
-        }while(choice < 4);
+        }while(choice <3 );
 }
 }
