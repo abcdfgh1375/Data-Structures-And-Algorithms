@@ -7,7 +7,7 @@ public class Main {
         do{
             System.out.println("1. Join queue\n2. Update queue\n3. Exit");
             choice = gameQueue.getChoice();
-            gameQueue.menu(choice);
+            gameQueue.execute(choice);
         }while(choice < 4);
 }
 }
