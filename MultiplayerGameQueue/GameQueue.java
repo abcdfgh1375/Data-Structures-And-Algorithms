@@ -8,6 +8,27 @@ import java.util.Scanner;
 
 //class GameQueue//
 public class GameQueue extends Menu {
+    public void menu(int choice){
+        switch(choice){
+            case 1:
+                Player player = new Player();
+                inputId(player);
+                inputPlayer(player);
+                enqueue(player);
+                displayQueue();
+                break;
+            case 2:
+                dequeue();
+                displayQueue();
+                break;
+            case 3:
+                System.err.println("Exited. Bye bye!");
+                break;
+            default:
+                System.err.println("Invalid choice. Please try again.");
+        }
+    }
+    
     //execute code//
     @Override
     public void execute(int choice) {
@@ -37,6 +58,12 @@ public class GameQueue extends Menu {
         super("Game Queue Management", Arrays.asList(new String[]{"Join queue", "Update queue", "Exit"}));
         this.front = this.rear = null;
     }
+    
+        public int getChoice() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter selection: ");
+        return Integer.parseInt(sc.nextLine());
+    }
 
     //input code//
     public void inputPlayer(Player player) {
@@ -63,6 +90,7 @@ public class GameQueue extends Menu {
                     }
                     p = p.next;
                 } while (p != front);
+                p = front;
             } while (check);
         }
     }
