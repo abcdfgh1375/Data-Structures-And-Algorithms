@@ -1,9 +1,5 @@
 package MultiplayerGameQueue;
-//
-//import java.util.ArrayList;
-//import java.util.Arrays;
 import java.util.InputMismatchException;
-//import java.util.List;
 import java.util.Scanner;
 
 //class GameQueue//
@@ -33,7 +29,6 @@ public class GameQueue extends Menu {
     Node front, rear;
 
     //constructor of GameQueue class//
-    
         public GameQueue() {
     }
 
