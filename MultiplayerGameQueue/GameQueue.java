@@ -8,26 +8,6 @@ import java.util.Scanner;
 
 //class GameQueue//
 public class GameQueue extends Menu {
-    public void menu(int choice){
-        switch(choice){
-            case 1:
-                Player player = new Player();
-                inputId(player);
-                inputPlayer(player);
-                enqueue(player);
-                displayQueue();
-                break;
-            case 2:
-                dequeue();
-                displayQueue();
-                break;
-            case 3:
-                System.err.println("Exited. Bye bye!");
-                break;
-            default:
-                System.err.println("Invalid choice. Please try again.");
-        }
-    }
     
     //execute code//
     @Override
