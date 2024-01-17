@@ -3,10 +3,9 @@ package Stack;
 import java.util.EmptyStackException;
 
 public class MainPostfix {
-
     public static void main(String[] args) {
         PostfixExpression cal = new PostfixExpression();
-        String op = " 23*73/+";
+        String op = "23+64-*2/"; // [(2+3)*(6-4)]/2
         System.out.println(cal.postfixCal(op));
     }
 }
@@ -15,7 +14,7 @@ class PostfixExpression {
 
     LinkedStack linkedStack = new LinkedStack();
 
-    public int postfixCal(String str) {
+    public int postfixCal(String str) throws EmptyStackException{
         int res = 0;
         char[] arr = str.trim().toCharArray();
         for (char c : arr) {
@@ -36,7 +35,7 @@ class PostfixExpression {
             case '+':
                 return operand1 + operand2;
             case '-':
-                return operand1 - operand2;
+                return operand2 - operand1;
             case '*':
                 return operand1 * operand2;
             case '/':
