@@ -1,11 +1,20 @@
 package Stack;
 
 import java.util.EmptyStackException;
+import java.util.Scanner;
 
 public class MainPostfix {
     public static void main(String[] args) {
         PostfixExpression cal = new PostfixExpression();
+        InputClass input = new InputClass();
         String op = "23+64-*2/"; // [(2+3)*(6-4)]/2
+        op = input.inputPattern("Input the postfix operator", "^[\\d\\s+\\-*/]*$");
+//  ^ là ký tự bắt đầu chuỗi.
+//[\\d\\s+\\-*/] là một ký tự bất kỳ trong tập hợp các ký tự sau:
+//\\d là một chữ số.
+//\\s là khoảng trắng.
+//+, -, *, / là các phép toán cộng, trừ, nhân, chia.
+//* là ký tự đại diện cho số lượng ký tự bất kỳ, có thể là 0. 
         System.out.println(cal.postfixCal(op));
     }
 }
@@ -49,6 +58,7 @@ class PostfixExpression {
         }
         return 0;
     }
+}
 
     class Node {
 
@@ -97,4 +107,16 @@ class PostfixExpression {
             return (x);
         }
     }
+class InputClass{
+    
+    public String inputPattern(String msg, String pattern) {
+        Scanner sc = new Scanner(System.in);
+        String data;
+        do {
+            System.out.println(msg);
+            data = sc.nextLine();
+        } while (!data.matches(pattern));
+        return data;
+    }
 }
+
