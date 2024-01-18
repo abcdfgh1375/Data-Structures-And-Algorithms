@@ -13,12 +13,6 @@ public class MainPostfix {
         cal.run();
     }
 }
-//  ^ là ký tự bắt đầu chuỗi.
-//[\\d\\s+\\-*/] là một ký tự bất kỳ trong tập hợp các ký tự sau:
-//\\d là một chữ số.
-//\\s là khoảng trắng.
-//+, -, *, / là các phép toán cộng, trừ, nhân, chia.
-//* là ký tự đại diện cho số lượng ký tự bất kỳ, có thể là 0. 
 
 class PostfixExpression {
     Node head,tail;
