@@ -13,7 +13,6 @@ public class MainPostfix {
         cal.run();
     }
 }
-
 class PostfixExpression {
     Node head,tail;
     LinkedStack linkedStack = new LinkedStack();
@@ -34,8 +33,8 @@ class PostfixExpression {
                     System.out.println(postfixCal(op));
                     break;
                 case 2:
-                    op = input.inputPattern("Input the infix operation: ", "^[0-9+\\-*/()\\[\\]]+$");
-                    System.out.println(translateToPostfix(op));;
+//                    op = input.inputPattern("Input the infix operation: ", "^[0-9+\\-*/()\\[\\]]+$");
+//                    System.out.println(translateToPostfix(op));;
                     break;
                 case 3:
                     System.exit(0);
@@ -82,44 +81,46 @@ class PostfixExpression {
         return 0;
     }
     
-    String translateToPostfix(String str) throws NullPointerException{
-        char[] arr = str.toCharArray();
-        int count = 0;
-        for(char c : arr){
-            if(Character.isDigit(c)){
-                if(count > 0){
-                    for(int i = 0; i< count;i++){
-                    int temp1 = linkedStack.pop();
-                    Node nNode = new Node(temp1,null);
-                    tail.next = nNode; tail = nNode;
-                    }
-                    count = 0;
-                }
-            if(this.isEmpty()){
-                head = tail = new Node(Character.getNumericValue(c),null);}
-            }else {
-                Node nNode = new Node(Character.getNumericValue(c),null);
-                tail.next = nNode; tail = nNode;
-            }
-            if(c=='+'||c=='-'||c=='*'||c=='/'){
-                linkedStack.push(c);
-            }
-            if(c==')'||c==']'){
-                count++;
-            }
-        }
-        int j = 0;
-        for(Node i = head; i != null; i = i.next,j++){
-            if(i.next == null)
-            {
-                arr[arr.length-1]=(char)i.info;
-                break;
-            }
-            arr[j]=(char)i.info;
-        }
-        return arr.toString();
-      
-    }
+//    
+//    String translateToPostfix(String str) throws NullPointerException {
+//    StringBuilder result = new StringBuilder();
+//    for (char c : str.toCharArray()) {
+//            if (Character.isDigit(c)) {
+//                result.append(c);
+//            } else if (c == '(') {
+//                linkedStack.push(c);
+//            } else if (c == ')') {
+//                while (!linkedStack.isEmpty() && linkedStack.top() != '(') {
+//                    result.append(linkedStack.pop());
+//                }
+//                linkedStack.pop(); // Pop '('
+//            } else {
+//                while (!linkedStack.isEmpty() && precedence(linkedStack.top()) >= precedence(c)) {
+//                    result.append(linkedStack.pop());
+//                }
+//                linkedStack.push(c);
+//            }
+//        }
+//
+//        while (!linkedStack.isEmpty()) {
+//            result.append(linkedStack.pop());
+//        }
+//
+//        return result.toString();
+//}
+//    private static int precedence(char operator) {
+//        switch (operator) {
+//            case '+':
+//            case '-':
+//                return 1;
+//            case '*':
+//            case '/':
+//                return 2;
+//        }
+//        return -1; // For '('
+//    }
+
+    
 }
 
 class Node {
