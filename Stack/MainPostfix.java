@@ -1,4 +1,5 @@
 package Stack;
+//
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,38 +14,28 @@ public class MainPostfix {
         cal.run();
     }
 }
+
 class PostfixExpression {
-    Node head,tail;
+
+    Node head, tail;
     LinkedStack linkedStack = new LinkedStack();
 
     public void run() {
         ViewClass input = new ViewClass();
         Scanner sc = new Scanner(System.in);
-        ArrayList<String> listPostFix = new ArrayList<>(Arrays.asList("Input & evaluate postfix expression", "Translate to postfix notation", "Exit"));
-        input.display("Postfix Expression Management", listPostFix);
-        int choice;
         String cont;
         do {
-             choice = input.inputPositiveInt("Enter your choice");
-            switch (choice) {
-                case 1:
-                    String op = "23+64-*2/"; // [(2+3)*(6-4)]/2
-                    op = input.inputPattern("Input the postfix operation: ", "^[\\d\\s+\\-*/]*$");
-                    System.out.println(postfixCal(op));
-                    break;
-                case 2:
-//                    op = input.inputPattern("Input the infix operation: ", "^[0-9+\\-*/()\\[\\]]+$");
-//                    System.out.println(translateToPostfix(op));;
-                    break;
-                case 3:
-                    System.exit(0);
-            }
-            cont = input.inputPattern("Do you want to continue? Y/N","[Y/N]");
-        } while (cont.equalsIgnoreCase("Y"));
+            String op; // [(2+3)*(6-4)]/2
+            op = input.inputPattern("Input the postfix operation: ", "^[\\d\\s+\\-*/]*$");
+            System.out.println("Result of postfix: " + postfixCal(op));
+            cont = input.inputPattern("Do you want to continue? Y/N", "[Y/N/y/n]");
+        } while (cont.equalsIgnoreCase("Y")||cont.equalsIgnoreCase("y"));
     }
+
     public boolean isEmpty() {
         return (head == null);
     }
+
     public int postfixCal(String str) throws EmptyStackException {
         int res = 0;
         char[] arr = str.trim().toCharArray();
@@ -80,47 +71,7 @@ class PostfixExpression {
         }
         return 0;
     }
-    
-//    
-//    String translateToPostfix(String str) throws NullPointerException {
-//    StringBuilder result = new StringBuilder();
-//    for (char c : str.toCharArray()) {
-//            if (Character.isDigit(c)) {
-//                result.append(c);
-//            } else if (c == '(') {
-//                linkedStack.push(c);
-//            } else if (c == ')') {
-//                while (!linkedStack.isEmpty() && linkedStack.top() != '(') {
-//                    result.append(linkedStack.pop());
-//                }
-//                linkedStack.pop(); // Pop '('
-//            } else {
-//                while (!linkedStack.isEmpty() && precedence(linkedStack.top()) >= precedence(c)) {
-//                    result.append(linkedStack.pop());
-//                }
-//                linkedStack.push(c);
-//            }
-//        }
-//
-//        while (!linkedStack.isEmpty()) {
-//            result.append(linkedStack.pop());
-//        }
-//
-//        return result.toString();
-//}
-//    private static int precedence(char operator) {
-//        switch (operator) {
-//            case '+':
-//            case '-':
-//                return 1;
-//            case '*':
-//            case '/':
-//                return 2;
-//        }
-//        return -1; // For '('
-//    }
 
-    
 }
 
 class Node {
