@@ -1,0 +1,10 @@
+AA101|08:00|New York|Scheduled
+CA303|07:45|Toronto|Scheduled
+DA404|08:30|Sydney|Scheduled
+EA505|10:00|Tokyo|Scheduled
+FA606|11:05|Paris|Scheduled
+GA707|07:00|Berlin|Scheduled
+HA808|09:00|Dubai|Scheduled
+IA909|10:30|Mumbai|Scheduled
+JA010|06:30|Beijing|Scheduled
+BA202|09:30|London|Scheduled
